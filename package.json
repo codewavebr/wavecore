@@ -1,0 +1,20 @@
+{
+  "name": "@codewave/wavecore",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./auth": "./src/auth/index.ts",
+    "./billing": "./src/billing/index.ts",
+    "./config": "./src/config/index.ts",
+    "./tenant": "./src/tenant/index.ts"
+  },
+  "peerDependencies": {
+    "date-fns": "^4.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
