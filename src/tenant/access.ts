@@ -1,5 +1,7 @@
+import { isPlatformAdmin } from "./resolve";
+
 export function isSuperAdmin(userRole?: string | null) {
-  return userRole === "superadmin";
+  return isPlatformAdmin(userRole);
 }
 
 export function canAccessTenant(
@@ -11,5 +13,7 @@ export function canAccessTenant(
     return true;
   }
 
-  return Boolean(userTenantId && currentTenantId && userTenantId === currentTenantId);
+  return Boolean(
+    userTenantId && currentTenantId && userTenantId === currentTenantId,
+  );
 }

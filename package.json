@@ -1,20 +1,73 @@
 {
   "name": "@codewave/wavecore",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codewavebr/wavecore.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "exports": {
-    ".": "./src/index.ts",
-    "./auth": "./src/auth/index.ts",
-    "./billing": "./src/billing/index.ts",
-    "./config": "./src/config/index.ts",
-    "./tenant": "./src/tenant/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "import": "./dist/auth/index.js"
+    },
+    "./billing": {
+      "types": "./dist/billing/index.d.ts",
+      "import": "./dist/billing/index.js"
+    },
+    "./config": {
+      "types": "./dist/config/index.d.ts",
+      "import": "./dist/config/index.js"
+    },
+    "./tenant": {
+      "types": "./dist/tenant/index.d.ts",
+      "import": "./dist/tenant/index.js"
+    },
+    "./next": {
+      "types": "./dist/next.d.ts",
+      "import": "./dist/next.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsx --test \"tests/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "date-fns": "^4.0.0",
+    "next": ">=15",
+    "server-only": ">=0.0.1",
     "zod": "^3.25.0"
   },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    },
+    "server-only": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "@types/node": "^20.9.0",
+    "date-fns": "^4.1.0",
+    "next": "15.4.10",
+    "tsx": "^4.19.4",
+    "typescript": "^5.2.2",
+    "zod": "^3.25.0"
   }
 }
