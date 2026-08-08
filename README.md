@@ -21,9 +21,12 @@ The package does not know about app auth tables or schema. The app injects those
 
 ## Publish
 
+Publishing happens automatically when a GitHub Release is published.
+The workflow syncs `package.json` version from the release tag (e.g. `v0.1.0`)
+and publishes `@codewave/wavecore` to GitHub Packages.
+
 Prepared for GitHub Packages under the `@codewave` scope.
-Run `bun run build` before publishing and use `npm publish` after authenticating to
-`https://npm.pkg.github.com`.
+Consumers should authenticate to `https://npm.pkg.github.com`.
 
 ## Tenant resolution
 
