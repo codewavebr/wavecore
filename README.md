@@ -1,4 +1,4 @@
-# @codewave/wavecore
+# @codewavebr/wavecore
 
 Shared product and infrastructure foundation for Code Wave projects.
 
@@ -10,12 +10,12 @@ WaveCore owns reusable business and platform concerns:
 - `config`: shared runtime configuration helpers.
 - `next`: optional server-only Next.js adapter for tenant context.
 
-WaveCore should not export React components, CSS, or layout primitives. Those belong in `@codewave/wavekit`.
+WaveCore should not export React components, CSS, or layout primitives. Those belong in `@codewavebr/wavekit`.
 
 ## Package format
 
-- `@codewave/wavecore`: core contracts and helpers without framework coupling.
-- `@codewave/wavecore/next`: factory of a server-only Next.js tenant adapter.
+- `@codewavebr/wavecore`: core contracts and helpers without framework coupling.
+- `@codewavebr/wavecore/next`: factory of a server-only Next.js tenant adapter.
 
 The package does not know about app auth tables or schema. The app injects those dependencies.
 
@@ -23,15 +23,15 @@ The package does not know about app auth tables or schema. The app injects those
 
 Publishing happens automatically when a GitHub Release is published.
 The workflow syncs `package.json` version from the release tag (e.g. `v0.1.0`)
-and publishes `@codewave/wavecore` to GitHub Packages.
+and publishes `@codewavebr/wavecore` to GitHub Packages.
 
-Prepared for GitHub Packages under the `@codewave` scope.
+Prepared for GitHub Packages under the `@codewavebr` scope.
 Consumers should authenticate to `https://npm.pkg.github.com`.
 
 ## Tenant resolution
 
 ```ts
-import { resolveTenantContext } from "@codewave/wavecore";
+import { resolveTenantContext } from "@codewavebr/wavecore";
 
 const context = await resolveTenantContext({
   actor: { userId: "user-1", role: "admin", tenantId: "tenant-a" },
@@ -43,7 +43,7 @@ const context = await resolveTenantContext({
 ## Next.js adapter
 
 ```ts
-import { createNextTenantContextAdapter } from "@codewave/wavecore/next";
+import { createNextTenantContextAdapter } from "@codewavebr/wavecore/next";
 
 export const { requireTenantContext, requirePlatformAdmin } =
   createNextTenantContextAdapter({
